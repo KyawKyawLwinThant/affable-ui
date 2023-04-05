@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html th:replace="layout/mainLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+  <div class="container my-5">
+     <div class="row">
+       <div class="col-md-6"></div>
+       <div class="col-md-6">
+         <table class="table table-striped">
+           <thead>
+           <tr>
+             <th>Image</th>
+             <th>Name</th>
+             <th>Price</th>
+           </tr>
+           </thead>
+           <tbody>
+           <tr th:each="pro :${products}">
+             <td><img src="../static/images/products"
+                      th:src="@{'/images/products/'+ ${pro.name}+'.png'}"
+                      alt="images"></td>
+             <td th:text="${pro.name}"></td>
+             <td th:text="${pro.price +'$'}"></td>
+           </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+  </div>
+</main>
+</body>
+</html>
